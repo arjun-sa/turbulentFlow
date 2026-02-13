@@ -1,0 +1,25 @@
+.canvas-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(99, 102, 241, 0.08);
+}
+
+.fluid-canvas {
+  display: block;
+  width: 560px;
+  height: 560px;
+  cursor: crosshair;
+  image-rendering: pixelated;
+  background: #000;
+}
+
+@media (max-width: 640px) {
+  .fluid-canvas {
+    width: 90vw;
+    height: 90vw;
+  }
+}
