@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react'
-import init, { FluidSim, wasm_memory } from 'fluid-sim-wasm'
+import init, { FluidSim, wasm_memory, initThreadPool } from 'fluid-sim-wasm'
 import './FluidCanvas.css'
 
 // Hue-based color palette for dye injection
@@ -56,6 +56,7 @@ export default function FluidCanvas({
 
     async function setup() {
       await init()
+      await initThreadPool(navigator.hardwareConcurrency)
       if (cancelled) return
 
       const sim = new FluidSim(gridSize)
